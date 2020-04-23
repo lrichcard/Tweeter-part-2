@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/layout_activity_login.xml.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/layout_activity_time_line.xml.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/layout/activity_time_line.xml"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/layout_item_tweet.xml.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/layout/item_tweet.xml"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/build/intermediates/res/merged/release/menu_login.xml.flat",
+        "source": "/home/lriche/Desktop/Android Folder/MyTwitter1/android-rest-client-template-master/app/src/main/res/menu/login.xml"
+    }
+]

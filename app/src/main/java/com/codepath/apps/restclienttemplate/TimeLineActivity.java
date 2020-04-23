@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.util.Log;
@@ -15,6 +16,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.codepath.apps.restclienttemplate.models.TweetDao;
+import com.codepath.apps.restclienttemplate.models.TweetWithUser;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -30,6 +33,7 @@ public class TimeLineActivity extends AppCompatActivity {
     public static final String TAG = "TimeLineActivity";
     private final int REQUEST_CODE = 20;
 
+    TweetDao tweetDao;
     TwitterClient client;
     RecyclerView rvTweets;
     List<Tweet> tweets;
@@ -41,7 +45,11 @@ public class TimeLineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_time_line);
 
          client = TwitterApp.getRestClient(this);
-    //Find the recycler view
+        tweetDao = ((TwitterApp) getApplicationContext()).getMyDatabase().tweetDao();
+
+
+
+        //Find the recycler view
         rvTweets = findViewById(R.id.rvTweets);
         //init the list of tweets and adapter
         tweets = new ArrayList<>();
@@ -49,6 +57,19 @@ public class TimeLineActivity extends AppCompatActivity {
         //Recycler view setup layout manager and the adapter
     rvTweets.setLayoutManager(new LinearLayoutManager(this));
     rvTweets.setAdapter(adapter);
+
+    // Query for existing tweets in the DB
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "showing data from data base");
+                List<TweetWithUser> tweetWithUsers = tweetDao.recentItems();
+                List<Tweet> tweetsFromDB  = TweetWithUser.getTweetList(tweetWithUsers);
+                adapter.clear();
+                adapter.addAll(tweetsFromDB);
+            }
+        });
+
          pupulateHomeTimeline();
          //
     }
@@ -98,6 +119,15 @@ public class TimeLineActivity extends AppCompatActivity {
                 try {
                     tweets.addAll(Tweet.fromJsonArray(jsonArray));
                     adapter.notifyDataSetChanged();
+
+                    AsyncTask.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.i(TAG, "saving data into data base");
+
+                        }
+                    });
+
                 } catch (JSONException e) {
                  Log.e(TAG, "Json exception", e);
 

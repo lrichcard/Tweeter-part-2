@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.models.TweetDao;
 import com.codepath.apps.restclienttemplate.models.TweetWithUser;
+import com.codepath.apps.restclienttemplate.models.User;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -117,13 +118,19 @@ public class TimeLineActivity extends AppCompatActivity {
             Log.i(TAG, "onSuccess"+json.toString());
             JSONArray jsonArray = json. jsonArray;
                 try {
-                    tweets.addAll(Tweet.fromJsonArray(jsonArray));
+                    final List<Tweet> tweetsFromNetWork = Tweet.fromJsonArray(jsonArray);
+                    tweets.addAll(tweetsFromNetWork);
                     adapter.notifyDataSetChanged();
 
                     AsyncTask.execute(new Runnable() {
                         @Override
                         public void run() {
                             Log.i(TAG, "saving data into data base");
+                            //insert users first
+                            List<User> userFromNetwork = User.fromJsonTweetArray(tweetsFromNetWork);
+                            tweetDao.insertModel(userFromNetwork.toArray(new User[0]));
+                            //insert tweets next
+                            tweetDao.insertModel(tweetsFromNetWork.toArray(new Tweet[0]));
 
                         }
                     });

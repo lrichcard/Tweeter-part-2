@@ -38,7 +38,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 
-[![My Gif image](https://imgur.com/x2o51ML)](https://imgur.com)
+[![My Gif image](mygif.gif)](https://imgur.com/x2o51ML)
 
 GIF created with [Screen Recorder].
 
